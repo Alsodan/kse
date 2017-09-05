@@ -1,52 +1,17 @@
 <?php
+/*
+ * This is global configuration file for console configuration
+ */
 
-$params = require(__DIR__ . '/params.php');
-$db = require(__DIR__ . '/db.php');
+Yii::setAlias('@tests', dirname(__DIR__) . '/tests');
 
 $config = [
-    'id' => 'basic-console',
-    'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'id' => 'kse-console',
+    'bootstrap' => ['gii'],
     'controllerNamespace' => 'app\commands',
-    'components' => [
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                '<_controller:[\w\-]+>/<id:\d+>' => '<_controller>/view',
-                '<_controller:[\w\-]+>' => '<_controller>/index',
-                '<_controller:[\w\-]+>/<_action:[\w\-]+>/<id:\d+>' => '<_controller>/<_action>',
-            ],
-        ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
-        'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'db' => $db,
+    'modules' => [
+        'gii' => 'yii\gii\Module',
     ],
-    'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
 ];
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-    ];
-}
 
 return $config;
