@@ -1,8 +1,7 @@
 Simple Site Project Template
 ============================
 
-Simple Site Project Template is based on a skeleton [Yii2 - basic](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+Simple Site Project Template is based on a skeleton [Yii2 - basic](http://www.yiiframework.com/) application. For rapidly creating small projects.
 
 The template contains the basic features including:
 
