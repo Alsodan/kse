@@ -28,9 +28,15 @@ return [
                 'enablePrettyUrl' => true,
                 'showScriptName' => false,
                 'rules' => [
-                    '<_controller:[\w\-]+>/<id:\d+>' => '<_controller>/view',
-                    '<_controller:[\w\-]+>' => '<_controller>/index',
-                    '<_controller:[\w\-]+>/<_action:[\w\-]+>/<id:\d+>' => '<_controller>/<_action>',
+                    '' => 'site/default/index',
+                    'contact' => 'site/default/contact',
+                    '<_action:error>' => 'site/default/<_action>',
+                    '<_action:(login|logout)>' => 'site/default/<_action>',
+
+                    '<_module:[\w\-]+>' => '<_module>/default/index',
+                    '<_module:[\w\-]+>/<_controller:[\w\-]+>' => '<_module>/<_controller>/index',
+                    '<_module:[\w\-]+>/<_controller:[\w\-]+>/<id:\d+>' => '<_module>/<_controller>/view',
+                    '<_module:[\w\-]+>/<_controller:[\w\-]+>/<_action:[\w\-]+>/<id:\d+>' => '<_module>/<_controller>/<_action>',
                 ],
         ],
         'mailer' => [
@@ -41,6 +47,16 @@ return [
         ],
         'log' => [
             'class' => 'yii\log\Dispatcher',
+        ],
+    ],
+    'modules' => [
+        'site' => [
+            'class' => 'app\modules\site\Module',
+            'layout' => '../../layouts/main',
+        ],
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => '../../layouts/main',
         ],
     ],
     'params' => $params,

@@ -5,6 +5,7 @@
 
 $config = [
     'id' => 'kse',
+    'defaultRoute' => 'site/default/index',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -12,11 +13,12 @@ $config = [
             'baseUrl'=> '',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\common\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['/login'],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'site/default/error',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
