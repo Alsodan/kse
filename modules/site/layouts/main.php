@@ -7,9 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use app\modules\site\assets\MainAsset;
 
-AppAsset::register($this);
+MainAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -37,11 +37,10 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/']],
-            ['label' => 'About', 'url' => ['/site/default/about']],
-            ['label' => 'Contact', 'url' => ['/contact']],
+            ['label' => 'Home', 'url' => ['/site/default/index']],
+            ['label' => 'Contact', 'url' => ['/site/default/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/login']]
+                ['label' => 'Login', 'url' => ['/site/default/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/logout'], 'post')

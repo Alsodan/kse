@@ -17,6 +17,14 @@ $config = [
             'enableAutoLogin' => true,
             'loginUrl' => ['/login'],
         ],
+        'assetManager' => [
+            //Make a simlinks for assets, not copy
+            'linkAssets' => true,
+            //Add timestamps to resources
+            'appendTimestamp' => true,
+            'basePath' => '@webroot/assets/',
+            'baseUrl' => '/web/assets/',
+        ],
         'errorHandler' => [
             'errorAction' => 'site/default/error',
         ],
