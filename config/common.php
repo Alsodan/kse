@@ -13,6 +13,7 @@ $params = ArrayHelper::merge(
  
 return [
     'basePath' => dirname(__DIR__),
+    'layout' => '@app/common/views/layouts/main',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -39,6 +40,9 @@ return [
                     '<_module:[\w\-]+>/<_controller:[\w\-]+>/<_action:[\w\-]+>/<id:\d+>' => '<_module>/<_controller>/<_action>',
                 ],
         ],
+        'authManager' => [
+            'class' => 'Da\User\Component\AuthDbManagerComponent',
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
         ],
@@ -52,11 +56,16 @@ return [
     'modules' => [
         'site' => [
             'class' => 'app\modules\site\Module',
-            'layout' => '../../layouts/main',
+            'layout' => 'main',
         ],
         'admin' => [
             'class' => 'app\modules\admin\Module',
-            'layout' => '../../layouts/main',
+            'layout' => 'main',
+        ],
+        'user' => [
+            'class' => Da\User\Module::class,
+            //'layout' => '@app/modules/admin/layouts/main',
+            //'admins' => ['admin'],
         ],
     ],
     'params' => $params,

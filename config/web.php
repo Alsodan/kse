@@ -12,11 +12,11 @@ $config = [
             'cookieValidationKey' => '',
             'baseUrl'=> '',
         ],
-        'user' => [
+        /*'user' => [
             'identityClass' => 'app\common\models\User',
             'enableAutoLogin' => true,
             'loginUrl' => ['/login'],
-        ],
+        ],*/
         'assetManager' => [
             //Make a simlinks for assets, not copy
             'linkAssets' => true,

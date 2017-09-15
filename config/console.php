@@ -11,6 +11,7 @@ $config = [
     'controllerNamespace' => 'app\commands',
     'modules' => [
         'gii' => 'yii\gii\Module',
+        'user' =>  Da\User\Module::class,
     ],
 ];
 

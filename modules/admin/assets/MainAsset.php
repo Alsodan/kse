@@ -16,6 +16,7 @@ class MainAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
-        'yiister\gentelella\assets\Asset',
+        'app\modules\admin\assets\CorrectThemeAsset',
+        'yiister\gentelella\assets\ExtensionAsset',
     ];
 }
